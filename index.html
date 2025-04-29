@@ -7,18 +7,8 @@
 <p id="demo"></p>
 
 <script>
-    function myDisplayer(some) {
-        document.getElementById("demo").innerHTML = some;
-    }
-    // use fetch() to get the file
 
-    async function getFile(myCallback) {
-        let response = await fetch('mycar.html');
-        let data = await response.text();
-        myCallback(data);
-    }
 
-    getFile(myDisplayer);
 </script>
 
 </body>
