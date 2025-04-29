@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html>
 <body>
+
+<h2>JavaScript Callbacks</h2>
+
+<p id="demo"></p>
+
+<script>
+    function myDisplayer(some) {
+        document.getElementById("demo").innerHTML = some;
+    }
+    // use fetch() to get the file
+
+    async function getFile(myCallback) {
+        let response = await fetch('mycar.html');
+        let data = await response.text();
+        myCallback(data);
+    }
+
+    getFile(myDisplayer);
+</script>
 
 </body>
 </html>
