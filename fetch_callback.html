@@ -7,10 +7,25 @@
 <p id="demo"></p>
 
 <script>
+    // 設計一個非同步 function 會傳進去 callback
+    // 非同步 function 要用 async await, 不要用 then
+    // 非同步 function 會 fetch 一個 html 檔案'mycar.html'
+    // 將這個 html 檔案的文字內容傳給 callback
 
+function myDisplayer(some) {
+    document.getElementById("demo").innerHTML = some;
+}
 
+// use fetch() to get the file
+async function getHTML(myCallback) {
+    let response = await fetch('mycar.html');
+    let data = await response.text();
+    myCallback(data);
+}
 
+getHTML(myDisplayer);
 </script>
 
 </body>
 </html>
+
