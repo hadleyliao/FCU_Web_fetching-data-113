@@ -6,7 +6,20 @@
 <p id="demo">Fetch a file to change this text.</p>
 
 <script>
+    // 一個 非同步 function fetchData 傳入 file 要用 async await 不要用 then
+    // function 裡面 使用 await 等待 fetch() 的結果，然後將結果轉換為文字格式
+    // 將 demo 元素的 html 取代為文字內容
+    // 呼叫這個 function 傳入檔案名稱 fetch_info.txt
 
+
+    // 呼叫 fetchData
+    async function fetchData(file) {
+        let response = await fetch(file);
+        let data = await response.text();
+        document.getElementById("demo").innerHTML = data;
+    }
+    // 呼叫 fetchData
+    fetchData('fetch_info.txt');
 
 
 </script>
